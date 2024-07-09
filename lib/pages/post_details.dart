@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_practice/pages/post_profile.dart';
 
 class PostDetails extends StatefulWidget {
   const PostDetails({super.key});
@@ -20,13 +21,13 @@ class _PostDetailsState extends State<PostDetails> {
               children: [
                 Positioned(
                     child: SizedBox(
-                  height: 350,
+                  height: 400,
                   // color: Colors.yellow,
                   child: Stack(
                     children: [
                       Positioned(
                           child: Container(
-                        height: 300,
+                        height: 350,
                         decoration: const BoxDecoration(
                             // color: Colors.red,
                             image: DecorationImage(
@@ -48,13 +49,22 @@ class _PostDetailsState extends State<PostDetails> {
                             Icons.favorite_border,
                             color: Colors.white,
                           )),
-                      const Positioned(
+                      Positioned(
                           bottom: 0,
                           right: 20,
-                          child: CircleAvatar(
-                            backgroundImage: NetworkImage(
-                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7SieSDnaZtBEq5mYqs-QZEOMuiED6aC6X0Q&s'),
-                            radius: 50,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PostProfile()),
+                              );
+                            },
+                            child: CircleAvatar(
+                              backgroundImage: NetworkImage(
+                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7SieSDnaZtBEq5mYqs-QZEOMuiED6aC6X0Q&s'),
+                              radius: 50,
+                            ),
                           )),
                     ],
                   ),
